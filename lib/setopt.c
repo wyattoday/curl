@@ -5,7 +5,7 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
- * Copyright (C) 1998 - 2021, Daniel Stenberg, <daniel@haxx.se>, et al.
+ * Copyright (C) 1998 - 2022, Daniel Stenberg, <daniel@haxx.se>, et al.
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -3041,6 +3041,16 @@ CURLcode Curl_vsetopt(struct Curl_easy *data, CURLoption option, va_list param)
     break;
   case CURLOPT_PREREQDATA:
     data->set.prereq_userp = va_arg(param, void *);
+    break;
+  case CURLOPT_STREAM_WINDOW_SIZE:
+    {
+      long stream_window_size = va_arg(param, long);
+      if((stream_window_size > 0) &&
+         ((unsigned long)stream_window_size <= 0x7FFFFFFF))
+        data->set.stream_window_size = curlx_sltoui(stream_window_size);
+      else
+        return CURLE_BAD_FUNCTION_ARGUMENT;
+    }
     break;
   default:
     /* unknown tag and its companion, just ignore: */

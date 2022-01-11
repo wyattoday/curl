@@ -2134,6 +2134,9 @@ typedef enum {
   /* Set MIME option flags. */
   CURLOPT(CURLOPT_MIME_OPTIONS, CURLOPTTYPE_LONG, 315),
 
+  /* Stream window size */
+  CURLOPT(CURLOPT_STREAM_WINDOW_SIZE, CURLOPTTYPE_LONG, 316),
+
   CURLOPT_LASTENTRY /* the last unused */
 } CURLoption;
 

@@ -5,7 +5,7 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
- * Copyright (C) 1998 - 2021, Daniel Stenberg, <daniel@haxx.se>, et al.
+ * Copyright (C) 1998 - 2022, Daniel Stenberg, <daniel@haxx.se>, et al.
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -680,6 +680,10 @@ static CURLcode easy_perform(struct Curl_easy *data, bool events)
 
   /* Copy the MAXCONNECTS option to the multi handle */
   curl_multi_setopt(multi, CURLMOPT_MAXCONNECTS, data->set.maxconnects);
+
+  /* Copy the STREAM_WINDOW_SIZE option to the multi handle */
+  curl_multi_setopt(multi, CURLMOPT_STREAM_WINDOW_SIZE,
+    data->set.stream_window_size);
 
   mcode = curl_multi_add_handle(multi, data);
   if(mcode) {

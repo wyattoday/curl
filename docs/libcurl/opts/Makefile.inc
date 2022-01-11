@@ -5,7 +5,7 @@
 #                            | (__| |_| |  _ <| |___
 #                             \___|\___/|_| \_\_____|
 #
-# Copyright (C) 1998 - 2021, Daniel Stenberg, <daniel@haxx.se>, et al.
+# Copyright (C) 1998 - 2022, Daniel Stenberg, <daniel@haxx.se>, et al.
 #
 # This software is licensed as described in the file COPYING, which
 # you should have received as part of this distribution. The terms
@@ -103,6 +103,7 @@ man_MANS =                                      \
   CURLMOPT_PUSHFUNCTION.3                       \
   CURLMOPT_SOCKETDATA.3                         \
   CURLMOPT_SOCKETFUNCTION.3                     \
+  CURLMOPT_STREAM_WINDOW_SIZE.3                 \
   CURLMOPT_TIMERDATA.3                          \
   CURLMOPT_TIMERFUNCTION.3                      \
   CURLOPT_ABSTRACT_UNIX_SOCKET.3                \
@@ -361,6 +362,7 @@ man_MANS =                                      \
   CURLOPT_STREAM_DEPENDS.3                      \
   CURLOPT_STREAM_DEPENDS_E.3                    \
   CURLOPT_STREAM_WEIGHT.3                       \
+  CURLOPT_STREAM_WINDOW_SIZE.3                  \
   CURLOPT_SUPPRESS_CONNECT_HEADERS.3            \
   CURLOPT_TCP_FASTOPEN.3                        \
   CURLOPT_TCP_KEEPALIVE.3                       \

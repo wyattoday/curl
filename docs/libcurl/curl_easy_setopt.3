@@ -5,7 +5,7 @@
 .\" *                            | (__| |_| |  _ <| |___
 .\" *                             \___|\___/|_| \_\_____|
 .\" *
-.\" * Copyright (C) 1998 - 2021, Daniel Stenberg, <daniel@haxx.se>, et al.
+.\" * Copyright (C) 1998 - 2022, Daniel Stenberg, <daniel@haxx.se>, et al.
 .\" *
 .\" * This software is licensed as described in the file COPYING, which
 .\" * you should have received as part of this distribution. The terms
@@ -369,6 +369,8 @@ This HTTP/2 stream depends on another exclusively. See
 \fICURLOPT_STREAM_DEPENDS_E(3)\fP
 .IP CURLOPT_STREAM_WEIGHT
 Set this HTTP/2 stream's weight. See \fICURLOPT_STREAM_WEIGHT(3)\fP
+.IP CURLOPT_STREAM_WINDOW_SIZE
+Set the HTTP/2 stream window size. See \fICURLMOPT_STREAM_WINDOW_SIZE(3)\fP
 .SH SMTP OPTIONS
 .IP CURLOPT_MAIL_FROM
 Address of the sender. See \fICURLOPT_MAIL_FROM(3)\fP
