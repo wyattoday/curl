@@ -24,15 +24,14 @@
 
 #include "curl_setup.h"
 
+#define HTTP2_HUGE_WINDOW_SIZE (32 * 1024 * 1024) /* 32 MB */
+
 #ifdef USE_NGHTTP2
 #include "http.h"
 
 /* value for MAX_CONCURRENT_STREAMS we use until we get an updated setting
    from the peer */
 #define DEFAULT_MAX_CONCURRENT_STREAMS 100
-
-#define HTTP2_HUGE_WINDOW_SIZE (32 * 1024 * 1024) /* 32 MB */
-
 /*
  * Store nghttp2 version info in this buffer.
  */
