@@ -139,8 +139,9 @@ struct Curl_multi {
   struct curltime timer_lastcall; /* the fixed time for the timeout for the
                                     previous callback */
   unsigned int max_concurrent_streams;
+#if defined(USE_NGHTTP2) || defined(USE_HYPER)
   unsigned int stream_window_size;
-
+#endif
 #ifdef USE_WINSOCK
   WSAEVENT wsa_event; /* winsock event used for waits */
 #else

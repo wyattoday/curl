@@ -394,7 +394,7 @@ struct Curl_multi *Curl_multi_handle(int hashsize, /* socket hash */
   /* -1 means it not set by user, use the default value */
   multi->maxconnects = -1;
   multi->max_concurrent_streams = 100;
-#ifdef USE_NGHTTP2
+#ifdef USE_HTTP2
   multi->stream_window_size = HTTP2_HUGE_WINDOW_SIZE;
 #endif
   multi->ipv6_works = Curl_ipv6works(NULL);
@@ -3223,6 +3223,7 @@ CURLMcode curl_multi_setopt(struct Curl_multi *multi,
       multi->max_concurrent_streams = curlx_sltoui(streams);
     }
     break;
+#ifdef USE_HTTP2
   case CURLMOPT_STREAM_WINDOW_SIZE:
     {
       long stream_window_size = va_arg(param, long);
@@ -3233,6 +3234,7 @@ CURLMcode curl_multi_setopt(struct Curl_multi *multi,
         return CURLM_BAD_FUNCTION_ARGUMENT;
     }
     break;
+#endif
   default:
     res = CURLM_UNKNOWN_OPTION;
     break;

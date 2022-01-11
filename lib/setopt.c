@@ -895,7 +895,7 @@ CURLcode Curl_vsetopt(struct Curl_easy *data, CURLoption option, va_list param)
       ;
     else
 #endif
-#if !defined(USE_NGHTTP2) && !defined(USE_HYPER)
+#ifndef USE_HTTP2
     if(arg >= CURL_HTTP_VERSION_2)
       return CURLE_UNSUPPORTED_PROTOCOL;
 #else
@@ -3042,6 +3042,7 @@ CURLcode Curl_vsetopt(struct Curl_easy *data, CURLoption option, va_list param)
   case CURLOPT_PREREQDATA:
     data->set.prereq_userp = va_arg(param, void *);
     break;
+#ifdef USE_HTTP2
   case CURLOPT_STREAM_WINDOW_SIZE:
     {
       long stream_window_size = va_arg(param, long);
@@ -3052,6 +3053,7 @@ CURLcode Curl_vsetopt(struct Curl_easy *data, CURLoption option, va_list param)
         return CURLE_BAD_FUNCTION_ARGUMENT;
     }
     break;
+#endif
   default:
     /* unknown tag and its companion, just ignore: */
     result = CURLE_UNKNOWN_OPTION;

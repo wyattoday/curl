@@ -33,8 +33,8 @@ CURLMcode curl_easy_setopt(CURL *handle, CURLOPT_STREAM_WINDOW_SIZE,
 .SH DESCRIPTION
 Pass a long indicating the sender's HTTP/2 initial stream window \fBsize\fP in
 bytes. This setting affects the initial window size of all streams. When using
-\fIcurl_easy_pause(3)\fP , this value is also the maximum number of bytes libcurl
-has to buffer for a paused stream.
+\fIcurl_easy_pause(3)\fP, this value is also the maximum number of bytes
+libcurl has to buffer for a paused stream.
 
 If you add this easy handle to a multi handle, this setting is not
 acknowledged, and you must instead use \fIcurl_multi_setopt(3)\fP and the
