@@ -1438,7 +1438,9 @@ static CURLcode mbedtls_connect(struct Curl_cfilter *cf,
  */
 static int mbedtls_init(void)
 {
+#ifdef CURL_MBEDTLS_DRBG
   int ret = 0;
+#endif
   psa_status_t status;
   status = psa_crypto_init();
 
@@ -1452,7 +1454,7 @@ static int mbedtls_init(void)
   ret = mbedtls_ctr_drbg_seed(&rng.drbg, mbedtls_entropy_func, &rng.entropy,
     NULL, 0);
 
-  if (ret) {
+  if(ret) {
     failf(NULL, " failed\n  ! mbedtls_ctr_drbg_seed returned -0x%x\n",
       (unsigned int)-ret);
     return 0;
